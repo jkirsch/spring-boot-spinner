@@ -16,4 +16,4 @@ hs_err_pid*
 *.iml
 
 #Bower assets
-src/main/webapp/assets/lib/
+#src/main/webapp/assets/lib/
