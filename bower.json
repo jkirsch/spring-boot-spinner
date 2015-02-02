@@ -1,0 +1,17 @@
+{
+  "name": "spring-boot-spinner",
+  "version": "0.0.1-SNAPSHOT",
+  "dependencies": {
+    "msgs": "#dev",
+    "sockjs": "~0.3",
+    "bootstrap": "bootstrap#3.3.2",
+    "jquery": "jquery#2.1.3",
+    "spinner": "https://github.com/JesseDahl/d3.spinner.git",
+    "angular": "angular#1.3.11",
+    "stomp": "stomp-websocket#~2.3.1",
+    "AngularJS-Toaster": "~0.4.10"
+  },
+  "ignore": [
+    "test"
+  ]
+}
