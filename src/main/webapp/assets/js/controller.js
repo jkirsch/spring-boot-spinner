@@ -93,8 +93,8 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
         $timeout(function() {
             $scope.winner = element;
-            $scope.spinning = false;
             updateData();
+            $scope.spinning = false;
         }, spinResult.duration + 100);
 
    }
