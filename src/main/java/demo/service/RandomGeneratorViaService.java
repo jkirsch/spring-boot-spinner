@@ -1,6 +1,7 @@
 package demo.service;
 
-import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -11,14 +12,15 @@ import java.util.Scanner;
  * Date: 02.02.2015
  * Time: 19:18
  */
-@Service
 public class RandomGeneratorViaService implements RandomGeneratorService {
 
     final RestTemplate restTemplate;
+    Logger LOG = LoggerFactory.getLogger(RandomGeneratorViaService.class);
 
     public RandomGeneratorViaService() {
         restTemplate = new RestTemplate();
 
+        LOG.info("Using random number generator service");
     }
 
     @Override

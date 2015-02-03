@@ -15,5 +15,8 @@ hs_err_pid*
 .idea/
 *.iml
 
+#Maven
+target/
+
 #Bower assets
 #src/main/webapp/assets/lib/
