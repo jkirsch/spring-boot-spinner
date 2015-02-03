@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
  *
  */
 @Profile("cloud")
-public class CloudConfig  extends AbstractCloudConfig {
+public class CloudConfig extends AbstractCloudConfig {
 
     @Bean(destroyMethod = "close")
     public javax.sql.DataSource dataSource() {

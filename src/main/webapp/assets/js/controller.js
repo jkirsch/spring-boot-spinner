@@ -134,6 +134,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         margins: {top: 40, right: 10, bottom: 10, left: 10},
         outerR: 200,
         h: 450,
+        w: 600,
         data: transform()
     });
 
