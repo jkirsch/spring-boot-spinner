@@ -53,6 +53,10 @@ public class ParticipantController {
     public Participant random() {
         // get a random element
         long count = participantRepository.count();
+        if(count == 0) {
+            throw new IllegalStateException("No entries ...");
+        }
+
         int theIndex = randomGenerator.getNext((int) count);
         Participant participant = Iterables.get(participantRepository.findAll(), theIndex);
 

@@ -30,9 +30,22 @@
     <div class="container" ng-controller="EntriesCtrl">
         <toaster-container></toaster-container>
 
-        <h4>Random Name Selector</h4>
+        <h3>Random Name Selector</h3>
 
         <div class="row">
+            <form name="newEntryForm" ng-submit="add(newName)">
+                <label for="newName">Add a new label</label>
+                <div class="input-group">
+                    <div class="form-group">
+                        <input type="text" ng-model="newName" class="form-control" name="newName" id="newName" placeholder="Enter something" required>
+                    </div>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary pull-right" ng-disabled="!newEntryForm.newName.$valid">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                </span>
+                </div>
+            </form>
 
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -59,20 +72,6 @@
 
         </div>
 
-        <form name="newEntryForm" ng-submit="add(newName)">
-            <label for="newName">Add a new label</label>
-            <div class="input-group">
-                <div class="form-group">
-                    <input type="text" ng-model="newName" class="form-control" name="newName" id="newName" placeholder="Enter something" required>
-                </div>
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary pull-right" ng-disabled="!newEntryForm.newName.$valid">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </button>
-                </span>
-            </div>
-
-        </form>
 
         <hr>
 

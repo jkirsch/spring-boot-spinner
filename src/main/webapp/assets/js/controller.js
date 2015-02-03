@@ -5,8 +5,8 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
 .controller('EntriesCtrl', function($scope, myService, toaster, $timeout) {
 
-    var socket = new SockJS('/spinner');
-    var stompClient = Stomp.over(socket);
+    var socket;
+    var stompClient;
 
     $scope.participants = [];
 
@@ -120,14 +120,21 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
           });
     }
 
-    function stompConnect() {
-        console.log('Attempting to connect');
-        stompClient.connect({}, initialConnect, function(error) {
-                  console.log('STOMP: ' + error);
-                  setTimeout(stompConnect, 15000);
-                  console.log('STOMP: Reconnecting in 10 seconds');
-                });
-    }
+
+        var stompFailureCallback = function (error) {
+            console.log('STOMP: ' + error);
+            setTimeout(stompConnect, 10000);
+            console.log('STOMP: Reconecting in 10 seconds');
+        };
+
+        function stompConnect() {
+            console.log('STOMP: Attempting connection');
+            // recreate the stompClient to use a new WebSocket
+            socket = new SockJS('/spinner')
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, initialConnect, stompFailureCallback);
+        }
+
 
     stompConnect();
 
