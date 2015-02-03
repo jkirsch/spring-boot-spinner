@@ -13,6 +13,8 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
     $scope.winner = "";
     $scope.newName = '';
 
+    $scope.spinning = false;
+
 	$scope.add = function (newName) {
 
         var newEntry = {
@@ -33,6 +35,16 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
    var handleAdd = function(added) {
         $scope.participants.push(added);
         $scope.$apply();
+        // add
+        wheel.update(transform());
+   }
+
+   var updateData = function(removed) {
+        $scope.$apply();
+        // add
+        if (!$scope.spinning) {
+            wheel.update(transform());
+        }
    }
 
    var handleRemove = function(removed) {
@@ -46,7 +58,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         }
         // i is now the index
         $scope.participants.splice(i , 1);
-        $scope.$apply();
+        updateData();
 
    }
 
@@ -77,11 +89,13 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         // number of spins =  10
         var deg = slice + 360 * 20;
         var spinResult = wheel.spin(deg);
+        $scope.spinning = true;
 
         $timeout(function() {
             $scope.winner = element;
-            $scope.$apply();
-        }, spinResult.duration);
+            $scope.spinning = false;
+            updateData();
+        }, spinResult.duration + 100);
 
    }
 
@@ -90,7 +104,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
           stompClient.subscribe("/app/participants", function(message) {
             $scope.participants = JSON.parse(message.body);
-            $scope.$apply();
+            updateData();
           });
 
           stompClient.subscribe("/topic/added", function(message) {
@@ -134,7 +148,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         margins: {top: 40, right: 10, bottom: 10, left: 10},
         outerR: Math.min(window.innerWidth / 2, 220) - 20,
         h: 450,
-        w: 600,
+        w: Math.min(600,window.innerWidth) - 20,
         data: transform()
     });
 

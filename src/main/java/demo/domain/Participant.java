@@ -31,6 +31,10 @@ public class Participant {
         return id;
     }
 
+    public int getCounts() {
+        return counts;
+    }
+
     public void addOne() {
         this.counts++;
     }
