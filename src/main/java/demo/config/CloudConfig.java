@@ -1,6 +1,7 @@
 package demo.config;
 
 import org.springframework.cloud.config.java.AbstractCloudConfig;
+import org.springframework.cloud.config.java.ServiceScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Profile;
  *
  */
 @Profile("cloud")
+@ServiceScan
 public class CloudConfig extends AbstractCloudConfig {
 
     @Bean(destroyMethod = "close")
