@@ -47,6 +47,10 @@
 			<scope>test</scope>
 		</dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cloud-connectors</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.h2database</groupId>
