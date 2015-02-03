@@ -135,7 +135,7 @@ var Spinner = function(el, cfg) {
         duration = (duration !== undefined) ? duration : (deg*500)/360;
 
         vis.selectAll("g.slice").transition()
-            .ease("quad-out")
+            .ease("bounce-in")
             .duration(duration)
             .attrTween("transform", function() {
                 return d3.interpolateString("rotate(0)", "rotate(" + deg + ")");

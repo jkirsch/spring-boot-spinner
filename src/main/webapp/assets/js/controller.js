@@ -3,7 +3,7 @@
 angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
 
-.controller('EntriesCtrl', function($scope, myService, toaster) {
+.controller('EntriesCtrl', function($scope, myService, toaster, $timeout) {
 
     var socket = new SockJS('/spinner');
     var stompClient = Stomp.over(socket);
@@ -78,7 +78,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         var deg = slice + 360 * 20;
         var spinResult = wheel.spin(deg);
 
-        setTimeout(function() {
+        $timeout(function() {
             $scope.winner = element;
             $scope.$apply();
         }, spinResult.duration);
@@ -125,14 +125,14 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
     var transform = function() {
         var transformed = [];
         angular.forEach($scope.participants, function(value) {
-          this.push(value.id + ': ' + value.name);
+          this.push(value.name.substring(0,8));
         }, transformed);
         return transformed;
     }
 
    var wheel = new Spinner("#spinnerContainer", {
         margins: {top: 40, right: 10, bottom: 10, left: 10},
-        outerR: 200,
+        outerR: Math.min(window.innerWidth / 2, 220) - 20,
         h: 450,
         w: 600,
         data: transform()
