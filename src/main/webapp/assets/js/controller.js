@@ -95,7 +95,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.winner = element;
             updateData();
             $scope.spinning = false;
-        }, spinResult.duration + 100);
+        }, spinResult.duration + 500);
 
    }
 
@@ -151,11 +151,13 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         return transformed;
     }
 
+  var wheelWidth = Math.min(window.innerWidth / 2, 220) - 20;
+
    var wheel = new Spinner("#spinnerContainer", {
         margins: {top: 40, right: 10, bottom: 10, left: 10},
-        outerR: Math.min(window.innerWidth / 2, 220) - 20,
+        outerR: wheelWidth ,
         h: 450,
-        w: Math.min(600,window.innerWidth) - 20,
+        w: 2*wheelWidth + 20,
         data: transform()
     });
 
