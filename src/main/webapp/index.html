@@ -30,7 +30,9 @@
     <div class="container" ng-controller="EntriesCtrl">
         <toaster-container></toaster-container>
 
-        <h3>Random Name Selector</h3>
+        <div class="row">
+            <h3>Random Name Selector <span class="badge pull-right">{{connected}}</span></h3>
+        </div>
 
         <div class="row">
             <form name="newEntryForm" ng-submit="add(newName)">

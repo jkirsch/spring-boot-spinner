@@ -1,0 +1,11 @@
+# Set the platform to h2
+# which automatically imports data-h2.sql when no profile is set
+spring:
+    datasource:
+        platform: h2
+---
+spring:
+    profiles: cloud
+    jpa:
+        hibernate:
+            ddl-auto: update

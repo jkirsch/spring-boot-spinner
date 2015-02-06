@@ -13,6 +13,8 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
     $scope.winner = "";
     $scope.newName = '';
 
+    $scope.connected = 0;
+
     $scope.spinning = false;
 
 	$scope.add = function (newName) {
@@ -62,6 +64,12 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
    }
 
+   var handleCount = function(count) {
+        // update the count handler
+        $scope.connected = count;
+        $scope.$apply();
+   }
+
    var handleRandomSpin = function(element) {
 
         // an item was select. find the index
@@ -103,7 +111,9 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
           console.log('Connected ' + frame);
 
           stompClient.subscribe("/app/participants", function(message) {
-            $scope.participants = JSON.parse(message.body);
+            var res = JSON.parse(message.body);
+            $scope.participants = res.entries;
+            $scope.connected = res.connected;
             updateData();
           });
 
@@ -118,8 +128,12 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
           stompClient.subscribe("/topic/spin", function(message) {
             handleRandomSpin(JSON.parse(message.body));
           });
-    }
 
+          stompClient.subscribe("/topic/count", function(message) {
+            handleCount(JSON.parse(message.body));
+          });
+
+    }
 
         var stompFailureCallback = function (error) {
             console.log('STOMP: ' + error);

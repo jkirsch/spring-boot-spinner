@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+
+    This file is the default logback configuration for Spring Boot. To use the same
+    defaults and add custom logger levels you can copy this file and add additional
+    overrides, e.g:
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework.web" level="DEBUG"/>
+    ...
+
+    -->
+
+    <!-- Insert the current time formatted as "yyyyMMdd'T'HHmmss" under
+          the key "bySecond" into the logger context. This value will be
+          available to all subsequent configuration elements. -->
+    <timestamp key="bySecond" datePattern="yyyy-MM-dd'T'HHmmss"/>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <logger name="com.netflix.hystrix.AbstractCommand" level="debug" />
+
+
+</configuration>

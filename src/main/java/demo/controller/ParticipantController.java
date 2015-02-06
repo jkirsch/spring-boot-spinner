@@ -3,6 +3,7 @@ package demo.controller;
 import com.google.common.collect.Iterables;
 import demo.domain.Participant;
 import demo.repository.ParticipantRepository;
+import demo.service.NumberOfUsersService;
 import demo.service.RandomGeneratorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,9 @@ public class ParticipantController {
     @Autowired
     ParticipantRepository participantRepository;
 
+    @Autowired
+    NumberOfUsersService numberOfUsersService;
+
     @RequestMapping("/")
     public Iterable<Participant> list() {
         return participantRepository.findAll();
@@ -44,6 +48,11 @@ public class ParticipantController {
         participantRepository.delete(id);
         messagingTemplate.convertAndSend("/topic/deleted", id);
         return true;
+    }
+
+    @RequestMapping(value = "/connected")
+    public int connected() {
+        return numberOfUsersService.getConnected();
     }
 
     @Autowired
@@ -74,11 +83,17 @@ public class ParticipantController {
         return save;
     }
 
+
+
+    // --------------------------------------------------------------------------
+    // MESSAGING
+    // --------------------------------------------------------------------------
+
     // Websocket relay
 
     @SubscribeMapping("/participants")
-    public Iterable<Participant> getParticipants() throws Exception {
-        return participantRepository.findAll();
+    public ReturnObject getParticipants() throws Exception {
+        return new ReturnObject(participantRepository.findAll(), numberOfUsersService.getConnected());
     }
 
     @MessageMapping("/remove")
@@ -86,5 +101,22 @@ public class ParticipantController {
         del(id);
     }
 
+    private class ReturnObject {
+        Iterable<Participant> entries;
+        int connected;
+
+        public ReturnObject(Iterable<Participant> entries, int connected) {
+            this.entries = entries;
+            this.connected = connected;
+        }
+
+        public Iterable<Participant> getEntries() {
+            return entries;
+        }
+
+        public int getConnected() {
+            return connected;
+        }
+    }
 
 }

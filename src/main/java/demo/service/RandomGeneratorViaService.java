@@ -1,6 +1,7 @@
 package demo.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -29,8 +30,16 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
     }
 
     @Override
-    @HystrixCommand(fallbackMethod = "fallback")
+    @HystrixCommand(fallbackMethod = "fallback",
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "800")
+            }
+    )
     public Integer getNext(Integer max) {
+
+        if (max <= 1) {
+            return max - 1;
+        }
 
         Map<String, String> params = new HashMap<>();
 
@@ -42,11 +51,7 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
         params.put("format", "plain");
         params.put("rnd", "new");
 
-        if (max <= 1) {
-            return max - 1;
-        }
-
-        String string = restTemplate.getForObject("https://www.random.org/integers/?num={num}&min=1&max={max}&col=1&base=10&format=plain&rnd=new", String.class, params);
+        String string = restTemplate.getForObject("https://www.random.org/integers/?num={num}&min={min}&max={max}&col={col}&base={base}&format={format}&rnd=new", String.class, params);
         Scanner scanner = new Scanner(string);
         return scanner.nextInt() - 1;
     }
