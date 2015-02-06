@@ -103,7 +103,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.winner = element;
             updateData();
             $scope.spinning = false;
-        }, spinResult.duration + 500);
+        }, spinResult.duration);
 
    }
 
