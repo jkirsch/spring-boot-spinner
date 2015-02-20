@@ -36,18 +36,17 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
    var handleAdd = function(added) {
         $scope.participants.push(added);
-        $scope.$apply();
         // add
-        wheel.update(transform());
-   }
+        updateDisplay();
+   };
 
-   var updateData = function(removed) {
-        $scope.$apply();
-        // add
-        if (!$scope.spinning) {
-            wheel.update(transform());
-        }
-   }
+   var updateDisplay = function(removed) {
+       if (!$scope.spinning) {
+           wheel.update(transform());
+           // add
+           $scope.$apply();
+       }
+   };
 
    var handleRemove = function(removed) {
 
@@ -60,23 +59,25 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         }
         // i is now the index
         $scope.participants.splice(i , 1);
-        updateData();
+        updateDisplay();
 
-   }
+   };
 
    var handleCount = function(count) {
         // update the count handler
         $scope.connected = count;
-        $scope.$apply();
-   }
+        updateDisplay();
+   };
 
    var handleRandomSpin = function(element) {
 
         // an item was select. find the index
+
+       $scope.spinning = true;
+
         var i;
         for (i = 0; i < $scope.participants.length; i++) {
           if ($scope.participants[i].id === element.id) {
-            $scope.participants[i] = element
             break;
           }
         }
@@ -97,15 +98,16 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         // number of spins =  10
         var deg = slice + 360 * 20;
         var spinResult = wheel.spin(deg);
-        $scope.spinning = true;
+
 
         $timeout(function() {
             $scope.winner = element;
-            updateData();
+            $scope.participants[i] = element;
             $scope.spinning = false;
+            $scope.$apply();
         }, spinResult.duration);
 
-   }
+   };
 
     var initialConnect = function(frame) {
           console.log('Connected ' + frame);
@@ -114,7 +116,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             var res = JSON.parse(message.body);
             $scope.participants = res.entries;
             $scope.connected = res.connected;
-            updateData();
+            updateDisplay();
           });
 
           stompClient.subscribe("/topic/added", function(message) {
@@ -133,7 +135,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             handleCount(JSON.parse(message.body));
           });
 
-    }
+    };
 
         var stompFailureCallback = function (error) {
             console.log('STOMP: ' + error);
@@ -163,7 +165,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
           this.push(value.name.substring(0,8));
         }, transformed);
         return transformed;
-    }
+    };
 
   var wheelWidth = Math.min(window.innerWidth / 2, 220) - 20;
 
@@ -185,7 +187,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             toaster.pop('error', "Backend error", errorObject.message);
             console.log(errorObject);
         })
-    }
+    };
 
 
 });

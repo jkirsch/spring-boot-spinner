@@ -6,8 +6,8 @@ svg:not(:root) {
   line-height: 20px;
   opacity: 1;
   padding: 10px;
-//  border: 1px solid black;
-//  background: white;
+/*  border: 1px solid black; */
+/*  background: white; */
 }
 
 .animate-show.ng-hide-add.ng-hide-add-active,
@@ -22,9 +22,7 @@ svg:not(:root) {
   padding: 0 10px;
 }
 
-//
-
-// IMPORT
+/* IMPORT */
 /* bootstrap 3 helpers */
 
 .navbar-form input, .form-inline input {

@@ -3,5 +3,5 @@
 'use strict';
 
 var myApp = angular.module('spinner', [
-   'spinner.controllers'
+   'spinner.controllers','ngAnimate'
 ]);
