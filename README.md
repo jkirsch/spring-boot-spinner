@@ -7,10 +7,13 @@ https://spring.io/guides/gs/messaging-stomp-websocket/
 
 The spinner is adapted from
 
+https://github.com/JesseDahl/d3.spinner
+
 # Dependencies
 
-This project uses bower to manage the javascript dependencies
+This project uses bower to manage the javascript dependencies.
+For convenience, all dependencies are stored in the assets folder.
 
-To init, use
+To manage the dependencies, use
 
-> bower install
+> bower
