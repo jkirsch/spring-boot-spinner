@@ -25,6 +25,7 @@
     </root>
 
     <logger name="com.netflix.hystrix.AbstractCommand" level="debug" />
+    <logger name="org.springframework.web.socket" level="debug" />
 
 
 </configuration>
