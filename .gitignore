@@ -19,4 +19,10 @@ hs_err_pid*
 target/
 
 #Bower assets
-#src/main/webapp/assets/lib/
+src/main/frontend/lib/
+
+#The webapp sources are dynamically generated from frontend
+src/main/webapp
+
+node_modules/
+node/
