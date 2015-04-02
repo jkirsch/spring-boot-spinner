@@ -16,7 +16,7 @@ var paths = {
 };
 
 gulp.task('wiredep', function () {
-    require('wiredep')({ src: paths.base , cwd: '../../../', exclude: ['jquery']});
+    require('wiredep')({ src: paths.base , cwd: '../../../', exclude: ['jquery','bootstrap.js']});
 });
 
 gulp.task('copyfonts', ['clean'], function() {
