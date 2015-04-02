@@ -17,7 +17,7 @@ var paths = {
 };
 
 gulp.task('wiredep', function () {
-        wiredep(paths.base);
+    require('wiredep')({ src: paths.base , cwd: '../../../', exclude: ['jquery']});
 });
 
 gulp.task('copyfonts', ['clean'], function() {
@@ -38,7 +38,7 @@ gulp.task('usemin', ['clean'], function () {
 });
 
 gulp.task('clean', function(cb) {
-    del([paths.dist], cb);
+    del(['webapp'], {cwd : '../'}, cb);
 });
 
 // The default task (called when you run `gulp` from cli)
