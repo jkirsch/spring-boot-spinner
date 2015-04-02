@@ -1,1 +1,12 @@
+# send to container based infrastructure: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+cache:
+  directories:
+  - $HOME/.m2
+  - node
+  - node_modules
+  - src/main/frontend/lib
+
 language: java
+
