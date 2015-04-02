@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var ngmin = require('gulp-ngmin');
+var ngAnnotate = require('gulp-ng-annotate');
 var imagemin = require('gulp-imagemin');
 var usemin = require('gulp-usemin');
 var minifyHtml = require('gulp-minify-html');
@@ -31,8 +31,8 @@ gulp.task('usemin', ['clean'], function () {
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
             html: [minifyHtml({empty: true, conditionals: true})],
-            js1: [ngmin(), uglify(), 'concat'],
-            js2: [ngmin(), uglify(), 'concat']
+            js1: [ngAnnotate(), uglify(), 'concat'],
+            js2: [ngAnnotate(), uglify(), 'concat']
         }))
         .pipe(gulp.dest(paths.dist));
 });
