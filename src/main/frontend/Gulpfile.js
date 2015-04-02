@@ -36,6 +36,11 @@ gulp.task('usemin', ['clean'], function () {
         .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('copydebug', ['clean'], function() {
+    gulp.src('**/*.{ttf,woff,woff2,eof,svg,css,js,html}')
+        .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('clean', function(cb) {
     del(['webapp'], {cwd : '../'}, cb);
 });

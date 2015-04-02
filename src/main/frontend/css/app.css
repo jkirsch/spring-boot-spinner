@@ -1,5 +1,16 @@
+/* custom theme + Bootstrap resets */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
 svg:not(:root) {
     overflow: inherit;
+}
+
+g.slice text {
+  font-size: 2em !important;
+}
+
+svg {
+  padding-top: 0 !important;
 }
 
 .animate-show {
@@ -31,8 +42,6 @@ svg:not(:root) {
 
 /* end */
 
-/* custom theme + Bootstrap resets */
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
 header {
 	min-height:180px;
