@@ -11,9 +11,13 @@ https://github.com/JesseDahl/d3.spinner
 
 # Dependencies
 
-This project uses bower to manage the javascript dependencies.
-For convenience, all dependencies are stored in the assets folder.
+This project uses bower to manage the javascript dependencies
+and nnpm do manage the build dependnecies for the frontend.
 
-To manage the dependencies, use
+This is all integrated into the build chain
 
-> bower
+> mvn compile -P generate-frontend
+
+This takes the sources found in `src/main/frontendsrc/main/frontend`
+and builds a compressed and minified version into `src/main/webapp`
+which is actually used.

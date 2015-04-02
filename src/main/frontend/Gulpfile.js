@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
-var imagemin = require('gulp-imagemin');
 var usemin = require('gulp-usemin');
 var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
