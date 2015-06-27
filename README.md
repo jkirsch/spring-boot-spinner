@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/jkirsch/spring-boot-spinner.svg)](https://travis-ci.org/jkirsch/spring-boot-spinner)
+[![Dependency Status](https://gemnasium.com/jkirsch/spring-boot-spinner.svg)](https://gemnasium.com/jkirsch/spring-boot-spinner)
+[![Dependency Status](https://www.versioneye.com/user/projects/558ef57f316338001e000160/badge.svg?style=flat)](https://www.versioneye.com/user/projects/558ef57f316338001e000160)
+
 # spring-boot-spinner
 Sample repository to showcase spring boot
 
