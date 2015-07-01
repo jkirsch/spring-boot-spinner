@@ -17,4 +17,3 @@ deploy:
   app: talk-spinner
   on:
     repo: jkirsch/spring-boot-spinner
-j
