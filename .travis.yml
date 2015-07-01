@@ -13,7 +13,7 @@ language: java
 deploy:
   provider: heroku
   api_key:
-    secure: d8mjElXrhBbO2j512TeN6fjwuN89Ks9uMxhRzWuE+WNYM0Bu6Mn+VCB5gciTJk56ZN9pf7RI7OJQ5qnSiwsGK4Jd58NYWd3aV50LFK6gMuodhLZ0EIbFId+AARwA95bMR4YdE8h2tpk11GxZsxwvhvRZqDj8+EAaV24aaItYAM8=
+    secure: "vu+C8dVToxn/uV/7gGIyYVwy65TjNtOUx0eK9EkFBGJpMARj4YhwxxSnsIdsqL/IAi8WZXs/z23hg8eo0dPrt75PRO5FmjGvi7grnlI6j2ADVtwdJEoDG6DYsvnpJ5m62k8IQuP/Sh1T2Qp+vjlYPjPuXOPHQBhwyzzBZqgyoBw="
   app: talk-spinner
   on:
     repo: jkirsch/spring-boot-spinner
