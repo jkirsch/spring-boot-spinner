@@ -10,3 +10,11 @@ cache:
 
 language: java
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: d8mjElXrhBbO2j512TeN6fjwuN89Ks9uMxhRzWuE+WNYM0Bu6Mn+VCB5gciTJk56ZN9pf7RI7OJQ5qnSiwsGK4Jd58NYWd3aV50LFK6gMuodhLZ0EIbFId+AARwA95bMR4YdE8h2tpk11GxZsxwvhvRZqDj8+EAaV24aaItYAM8=
+  app: talk-spinner
+  on:
+    repo: jkirsch/spring-boot-spinner
+j
