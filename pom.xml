@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.4.RELEASE</version>
+		<version>1.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -110,8 +110,8 @@
 								<id>install node and npm</id>
 								<goals><goal>install-node-and-npm</goal></goals>
 								<configuration>
-									<nodeVersion>v0.12.5</nodeVersion>
-									<npmVersion>2.12.1</npmVersion>
+									<nodeVersion>v0.12.6</nodeVersion>
+									<npmVersion>2.13.0</npmVersion>
 								</configuration>
 							</execution>
 							<execution>
