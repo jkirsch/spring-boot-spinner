@@ -26,6 +26,9 @@
 
     <logger name="com.netflix.hystrix.AbstractCommand" level="debug" />
     <logger name="org.springframework.web.socket" level="debug" />
+    <logger name="org.springframework.beans" level="WARN" />
+    <logger name="org.springframework.jmx" level="WARN" />
+    <logger name="org.springframework.context" level="WARN" />
 
 
 </configuration>

@@ -3,6 +3,10 @@
 spring:
     datasource:
         platform: h2
+    cloud:
+        config:
+            enabled: false
+
 ---
 spring:
     profiles: cloud

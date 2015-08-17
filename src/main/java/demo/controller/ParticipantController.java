@@ -13,6 +13,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 /**
  * Date: 02.02.2015
  * Time: 12:25
@@ -59,6 +61,7 @@ public class ParticipantController {
     RandomGeneratorService randomGenerator;
 
     @RequestMapping("/random")
+    @Transactional
     public Participant random() {
         // get a random element
         long count = participantRepository.count();

@@ -7,6 +7,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import java.io.File;
 
+/**
+ * When the development profile is set, we serve the uncompressed frontend directory directly.
+ */
 @Configuration
 @Profile("development")
 public class DevelopmentResourceConfiguration extends WebMvcConfigurerAdapter {
