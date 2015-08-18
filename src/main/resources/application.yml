@@ -6,6 +6,9 @@ spring:
     cloud:
         config:
             enabled: false
+    h2:
+        console:
+            enabled: true
 
 ---
 spring:
