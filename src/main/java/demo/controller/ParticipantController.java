@@ -5,8 +5,6 @@ import demo.domain.Participant;
 import demo.repository.ParticipantRepository;
 import demo.service.NumberOfUsersService;
 import demo.service.RandomGeneratorService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -23,8 +21,6 @@ import javax.transaction.Transactional;
 @RestController
 @RequestMapping("/participants")
 public class ParticipantController {
-
-    Logger LOG = LoggerFactory.getLogger(ParticipantController.class);
 
     @Autowired
     private MessageSendingOperations<String> messagingTemplate;
@@ -66,7 +62,7 @@ public class ParticipantController {
         // get a random element
         long count = participantRepository.count();
         if(count == 0) {
-            throw new IllegalStateException("No entries ...");
+            throw new IllegalStateException("No entries found ...");
         }
 
         int theIndex = randomGenerator.getNext((int) count);

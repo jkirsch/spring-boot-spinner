@@ -26,7 +26,7 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
     public RandomGeneratorViaService() {
         restTemplate = new RestTemplate();
 
-        LOG.info("Using random number generator service");
+        LOG.info("Enabling random.org random number generator service");
     }
 
     @Override
