@@ -105,6 +105,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.participants[i] = element;
             $scope.spinning = false;
             $scope.$apply();
+            toaster.pop('success', "Winner", element.name);
         }, spinResult.duration);
 
    };
