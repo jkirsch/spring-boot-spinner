@@ -4,6 +4,8 @@ var myApp = angular.module('spinner.services', [
 ])
 
 .factory('myService', function($http) {
+    'use strict';
+
     var myService = {
         create: function(data) {
           // $http returns a promise, which has a then function, which also returns a promise

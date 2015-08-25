@@ -7,6 +7,10 @@ var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 var del = require('del');
 
+var jshint = require('gulp-jshint');
+
+var watch = require('gulp-watch');
+
 var wiredep = require('wiredep').stream;
 
 var paths = {
@@ -48,3 +52,9 @@ gulp.task('clean', function(cb) {
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['wiredep','usemin', 'copyfonts']);
 
+gulp.task('lint', function() {
+    gulp.src('js/**/*.js')
+        .pipe(watch('js/**/*.js'))
+        .pipe(jshint())
+        .pipe(jshint.reporter("jshint-stylish"));
+});

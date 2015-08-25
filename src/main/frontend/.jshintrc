@@ -1,0 +1,8 @@
+{
+    "predef": [  // Custom globals.
+        "angular",
+        "Stomp",
+        "SockJS",
+        "Spinner"
+    ]
+}

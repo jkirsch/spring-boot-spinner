@@ -54,7 +54,11 @@
         <toaster-container></toaster-container>
 
         <div class="row">
-            <h3>Random Name Selector <span class="badge pull-right">{{connected}}</span></h3>
+            <h3>Random Name Selector
+            <button class="btn btn-info pull-right" type="button" ng-click="info()">
+                <span class="badge">{{connected}}</span>
+            </button>
+            </h3>
         </div>
 
         <div class="row">

@@ -1,9 +1,9 @@
-'use strict';
-
 angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
 
-.controller('EntriesCtrl', function($scope, myService, toaster, $timeout) {
+.controller('EntriesCtrl', function($scope, myService, toaster, $timeout, $log, $window) {
+
+    'use strict';
 
     var socket;
     var stompClient;
@@ -29,8 +29,8 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         },
         function(errorObject) {
             toaster.pop('error', "Backend error", errorObject.message);
-            console.log(errorObject);
-        })
+            $log.log(errorObject);
+        });
 
 	};
 
@@ -111,7 +111,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
    };
 
     var initialConnect = function(frame) {
-          console.log('Connected ' + frame);
+          $log.log('Connected ' + frame);
 
           stompClient.subscribe("/app/participants", function(message) {
             var res = JSON.parse(message.body);
@@ -139,15 +139,17 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
     };
 
         var stompFailureCallback = function (error) {
-            console.log('STOMP: ' + error);
-            setTimeout(stompConnect, 10000);
-            console.log('STOMP: Reconecting in 10 seconds');
+            // set the handler to 0
+            handleCount(0);
+            $log.log('STOMP: ' + error);
+            $timeout(stompConnect, 10000);
+            $log.log('STOMP: Reconnecting in 10 seconds');
         };
 
         function stompConnect() {
-            console.log('STOMP: Attempting connection');
+            $log.log('STOMP: Attempting connection');
             // recreate the stompClient to use a new WebSocket
-            socket = new SockJS('/spinner')
+            socket = new SockJS('/spinner');
             stompClient = Stomp.over(socket);
             stompClient.connect({}, initialConnect, stompFailureCallback);
         }
@@ -168,7 +170,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         return transformed;
     };
 
-  var wheelWidth = Math.min(window.innerWidth / 2, 220) - 20;
+  var wheelWidth = Math.min($window.innerWidth / 2, 220) - 20;
 
    var wheel = new Spinner("#spinnerContainer", {
         margins: {top: 40, right: 10, bottom: 10, left: 10},
@@ -186,8 +188,16 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
         },
         function(errorObject) {
             toaster.pop('error', "Backend error", errorObject.message);
-            console.log(errorObject);
-        })
+            $log.log(errorObject);
+        });
+    };
+
+    $scope.info = function () {
+        if($scope.connected  > 1 || $scope.connected  === 0 ) {
+            toaster.pop('info', 'Clients', 'Currently there are ' + $scope.connected + ' Clients');
+        } else {
+            toaster.pop('info', 'Clients', 'Currently there is ' + $scope.connected + ' Client connected');
+        }
     };
 
 
