@@ -7,5 +7,5 @@ package demo.service;
  */
 public interface RandomGeneratorService {
 
-    Integer getNext(Integer max);
+    Integer selectNumber(Integer max);
 }

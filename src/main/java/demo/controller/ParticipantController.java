@@ -65,7 +65,7 @@ public class ParticipantController {
             throw new IllegalStateException("No entries found ...");
         }
 
-        int theIndex = randomGenerator.getNext((int) count);
+        int theIndex = randomGenerator.selectNumber((int) count);
         Participant participant = Iterables.get(participantRepository.findAll(), theIndex);
 
         // now update how often this participant was selected

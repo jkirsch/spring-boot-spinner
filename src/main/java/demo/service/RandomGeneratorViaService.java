@@ -35,7 +35,7 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "800")
             }
     )
-    public Integer getNext(Integer max) {
+    public Integer selectNumber(Integer max) {
 
         if (max <= 1) {
             return max - 1;
@@ -58,6 +58,6 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
 
 
     public Integer fallback(Integer max) {
-        return secureRandomGeneratorService.getNext(max);
+        return secureRandomGeneratorService.selectNumber(max);
     }
 }

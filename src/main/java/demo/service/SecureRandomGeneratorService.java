@@ -17,7 +17,7 @@ public class SecureRandomGeneratorService implements RandomGeneratorService {
     Logger LOG = LoggerFactory.getLogger(SecureRandomGeneratorService.class);
 
     @Override
-    public Integer getNext(Integer max) {
+    public Integer selectNumber(Integer max) {
         LOG.info("Fallback random number");
         return rand.nextInt(max);
     }
