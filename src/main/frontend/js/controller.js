@@ -10,7 +10,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
     $scope.participants = [];
 
-    $scope.winner = "";
+    $scope.winner = '';
     $scope.newName = '';
 
     $scope.connected = 0;
@@ -28,7 +28,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.newName = '';
         },
         function(errorObject) {
-            toaster.pop('error', "Backend error", errorObject.message);
+            toaster.pop('error', 'Backend error', errorObject.message);
             $log.log(errorObject);
         });
 
@@ -105,7 +105,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.participants[i] = element;
             $scope.spinning = false;
             $scope.$apply();
-            toaster.pop('success', "Winner", element.name);
+            toaster.pop('success', 'Selected', element.name);
         }, spinResult.duration);
 
    };
@@ -114,26 +114,26 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
           $log.log('Connected ' + frame);
 
           stompClient.subscribe("/app/participants", function(message) {
-            var res = JSON.parse(message.body);
+            var res = angular.fromJson(message.body);
             $scope.participants = res.entries;
             $scope.connected = res.connected;
             updateDisplay();
           });
 
           stompClient.subscribe("/topic/added", function(message) {
-            handleAdd(JSON.parse(message.body));
+            handleAdd(angular.fromJson(message.body));
           });
 
           stompClient.subscribe("/topic/deleted", function(message) {
-            handleRemove(JSON.parse(message.body));
+            handleRemove(angular.fromJson(message.body));
           });
 
           stompClient.subscribe("/topic/spin", function(message) {
-            handleRandomSpin(JSON.parse(message.body));
+            handleRandomSpin(angular.fromJson(message.body));
           });
 
           stompClient.subscribe("/topic/count", function(message) {
-            handleCount(JSON.parse(message.body));
+            handleCount(angular.fromJson(message.body));
           });
 
     };
@@ -184,10 +184,10 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
         toaster.clear();
         myService.spin().then(function(d) {
-            $scope.winner = "";
+            $scope.winner = '';
         },
         function(errorObject) {
-            toaster.pop('error', "Backend error", errorObject.message);
+            toaster.pop('error', 'Backend error', errorObject.message);
             $log.log(errorObject);
         });
     };
