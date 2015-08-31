@@ -6,6 +6,8 @@ var usemin = require('gulp-usemin');
 var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 var del = require('del');
+var closure = require('gulp-closure-compiler-service');
+
 
 var jshint = require('gulp-jshint');
 
@@ -34,8 +36,8 @@ gulp.task('usemin', ['clean'], function () {
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
             html: [minifyHtml({empty: true, conditionals: true})],
-            js1: [ngAnnotate(), uglify(), 'concat'],
-            js2: [ngAnnotate(), uglify(), 'concat']
+            js1: [ngAnnotate(), closure({compilation_level:'SIMPLE_OPTIMIZATIONS'})],
+            js2: [ngAnnotate(), closure({compilation_level:'SIMPLE_OPTIMIZATIONS'})]
         }))
         .pipe(gulp.dest(paths.dist));
 });
