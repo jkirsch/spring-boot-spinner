@@ -22,39 +22,39 @@ var paths = {
 };
 
 gulp.task('wiredep', function () {
-    require('wiredep')({ src: paths.base , cwd: '../../../', exclude: ['jquery','bootstrap.js']});
+    require('wiredep')({src: paths.base, cwd: '../../../', exclude: ['jquery', 'bootstrap.js']});
 });
 
-gulp.task('copyfonts', ['clean'], function() {
+gulp.task('copyfonts', function () {
     gulp.src(paths.fonts + '**/*.{ttf,woff,woff2,eof,svg}')
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('usemin', ['clean'], function () {
+gulp.task('usemin', function () {
     return gulp.src(paths.base)
         .pipe(usemin({
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
             html: [minifyHtml({empty: true, conditionals: true})],
-            js1: [ngAnnotate(), closure({compilation_level:'SIMPLE_OPTIMIZATIONS'})],
-            js2: [ngAnnotate(), closure({compilation_level:'SIMPLE_OPTIMIZATIONS'})]
+            js1: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})],
+            js2: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})]
         }))
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('copydebug', ['clean'], function() {
+gulp.task('copydebug', function () {
     gulp.src('**/*.{ttf,woff,woff2,eof,svg,css,js,html}')
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('clean', function(cb) {
-    del(['webapp'], {cwd : '../'}, cb);
+gulp.task('clean', function (cb) {
+    del.sync(['webapp'], {cwd: '../'});//.then(cb);
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['wiredep','usemin', 'copyfonts']);
+gulp.task('default', ['clean', 'wiredep', 'usemin', 'copyfonts']);
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     gulp.src('js/**/*.js')
         .pipe(watch('js/**/*.js'))
         .pipe(jshint())
