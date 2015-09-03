@@ -10,7 +10,8 @@
     "jquery": "~2.1.4",
     "sockjs": "~0.3.4",
     "spinner": "https://github.com/JesseDahl/d3.spinner.git",
-    "stomp-websocket": "~2.3.4"
+    "stomp-websocket": "~2.3.4",
+    "zodiac": "https://github.com/indus/zodiac.git"
   },
   "ignore": [
     "test"
@@ -25,6 +26,11 @@
     "stomp-websocket": {
       "main": [
         "lib/stomp.js"
+      ]
+    },
+    "zodiac": {
+      "main": [
+        "zodiac.js"
       ]
     }
   },

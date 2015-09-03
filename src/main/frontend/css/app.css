@@ -1,6 +1,16 @@
 /* custom theme + Bootstrap resets */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
+#zodiac {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
 svg:not(:root) {
     overflow: inherit;
 }
