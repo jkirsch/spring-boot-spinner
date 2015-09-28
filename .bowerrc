@@ -2,7 +2,7 @@
   "directory": "src/main/frontend/lib",
   "analytics": false,
   "scripts": {
-    "postinstall": "node_modules/.bin/wiredep -s src/main/frontend/index.html -e jquery,bootstrap.js"
+    "postinstall": "wiredep -s src/main/frontend/index.html -e jquery,bootstrap.js"
   }
 
 }
