@@ -35,6 +35,7 @@
     <script src="lib/spinner/Spinner.js"></script>
     <script src="lib/stomp-websocket/lib/stomp.js"></script>
     <script src="lib/zodiac/zodiac.js"></script>
+    <script src="lib/angular-translate/angular-translate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -58,7 +59,7 @@
         <toaster-container></toaster-container>
 
         <div class="row">
-            <h3>Random Name Selector
+            <h3>{{'TITLE' | translate}}
             <button class="btn btn-info pull-right" type="button" ng-click="info()">
                 <span class="badge">{{connected}}</span>
             </button>
@@ -67,10 +68,10 @@
 
         <div class="row">
             <form name="newEntryForm" ng-submit="add(newName)">
-                <label for="newName">Add a new label</label>
+                <label for="newName" translate>ADD</label>
                 <div class="input-group">
                     <div class="form-group">
-                        <input type="text" ng-model="newName" class="form-control" name="newName" id="newName" placeholder="Enter something" required>
+                        <input type="text" ng-model="newName" class="form-control" name="newName" id="newName" placeholder="{{'EMPTY_TEXT' | translate}}" required>
                     </div>
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-primary pull-right" ng-disabled="!newEntryForm.newName.$valid">
@@ -84,8 +85,8 @@
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
-                        <th class="col-sm-8 col-xs-8">Name</th>
-                        <th class="col-sm-3 col-xs-3">Selected #</th>
+                        <th class="col-sm-8 col-xs-8" translate>NAME</th>
+                        <th class="col-sm-3 col-xs-3" translate>SELECTED</th>
                         <th class="col-sm-1 col-xs-1"></th>
                     </tr>
                     </thead>
@@ -110,7 +111,7 @@
 
         <div class="row" >
             <div class=" text-center  ">
-            <button class="btn btn-default" type="submit" ng-click="spin()">randomize <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></button>
+            <button class="btn btn-default" type="submit" ng-click="spin()">{{'SPIN' | translate}}<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></button>
             <h3 class="animate-show" ng-show="winner"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{winner.name}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h3>
             <div id="spinnerContainer"></div>
             </div>

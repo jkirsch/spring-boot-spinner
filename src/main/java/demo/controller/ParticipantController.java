@@ -100,6 +100,11 @@ public class ParticipantController {
         del(id);
     }
 
+    /**
+     * Simple Value Holder class.
+     *
+     * Gets serialized to JSON automatically.
+     */
     private static class ReturnObject {
         Iterable<Participant> entries;
         int connected;

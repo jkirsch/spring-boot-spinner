@@ -1,7 +1,7 @@
 angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
 
-.controller('EntriesCtrl', function($scope, myService, toaster, $timeout, $log, $window) {
+.controller('EntriesCtrl', function($scope, myService, toaster, $timeout, $log, $window, $translate) {
 
     'use strict';
 
@@ -23,7 +23,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             name : $scope.newName.trim()
         };
 
-        toaster.clear();
+        toaster.clear('*');
         myService.create(newEntry).then(function(d) {
             $scope.newName = '';
         },
@@ -105,7 +105,9 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
             $scope.participants[i] = element;
             $scope.spinning = false;
             $scope.$apply();
-            toaster.pop('success', 'Selected', element.name);
+            $translate(['WINNER']).then(function (translations) {
+                toaster.pop('success', translations.WINNER, element.name);
+            });
         }, spinResult.duration);
 
    };
@@ -182,7 +184,7 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
 
     $scope.spin = function() {
 
-        toaster.clear();
+        toaster.clear('*');
         myService.spin().then(function(d) {
             $scope.winner = '';
         },
@@ -193,11 +195,9 @@ angular.module('spinner.controllers', ['spinner.services', 'toaster'])
     };
 
     $scope.info = function () {
-        if($scope.connected  > 1 || $scope.connected  === 0 ) {
-            toaster.pop('info', 'Clients', 'Currently there are ' + $scope.connected + ' Clients');
-        } else {
-            toaster.pop('info', 'Clients', 'Currently there is ' + $scope.connected + ' Client connected');
-        }
+        $translate('CLIENTS', {clients: $scope.connected}).then(function (translation) {
+            toaster.pop('info', 'Clients', translation);
+            });
     };
 
 

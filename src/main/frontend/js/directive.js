@@ -19,7 +19,7 @@ angular.module('spinner.directives', [])
                         pivot: 0,
                         density: 9999,
                         dotRadius: [1, 5],
-                        linkColor: "#ffc545",
+                        linkColor: "#FFDAB9",
                         linkDistance: 55,
                         linkWidth: 2
                     });
