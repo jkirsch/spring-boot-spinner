@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class RandomGeneratorViaService implements RandomGeneratorService {
 
     final RestTemplate restTemplate;
-    Logger LOG = LoggerFactory.getLogger(RandomGeneratorViaService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RandomGeneratorViaService.class);
 
     SecureRandomGeneratorService secureRandomGeneratorService = new SecureRandomGeneratorService();
 

@@ -1,6 +1,10 @@
 # send to container based infrastructure: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: false
 
+branches:
+  only:
+    - master
+
 cache:
   directories:
   - $HOME/.m2
@@ -10,6 +14,10 @@ cache:
 
 language: java
 
+script:
+  - mvn clean
+  - mvn site
+
 deploy:
   provider: heroku
   api_key:
@@ -17,3 +25,7 @@ deploy:
   app: talk-spinner
   on:
     repo: jkirsch/spring-boot-spinner
+
+env:
+  global:
+    secure: sKvFBDjh3lniCyrAuIDEXjAf1A5LxD+tPNIpsaUQZVaOFd7ttQBcoMEr2bLd6wb9LCLlzYafaGrRaNgxaPFqCG0hJ7lA0JH0EHUCEKgk1vg3/fIDLjFHcmpim7t0NfxT/DYSCta8CbZBeSHgrmlke722zqRem+7Cx25bNrhfpXg=

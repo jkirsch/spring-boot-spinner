@@ -8,16 +8,15 @@ import java.security.SecureRandom;
 /**
  * Date: 02.02.2015
  * Time: 19:42
- *
  */
 public class SecureRandomGeneratorService implements RandomGeneratorService {
 
     SecureRandom rand = new SecureRandom();
 
-    Logger LOG = LoggerFactory.getLogger(SecureRandomGeneratorService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SecureRandomGeneratorService.class);
 
     @Override
-    public Integer selectNumber(Integer max) {
+    public Integer selectNumber(final Integer max) {
         LOG.info("Fallback random number");
         return rand.nextInt(max);
     }

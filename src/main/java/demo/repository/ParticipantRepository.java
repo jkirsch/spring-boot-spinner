@@ -5,9 +5,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 /**
+ * ParticipantRepository.
+ * <p>
  * Date: 02.02.2015
  * Time: 12:22
- *
  */
 @Repository
 public interface ParticipantRepository extends PagingAndSortingRepository<Participant, Integer> {

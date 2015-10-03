@@ -35,7 +35,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/spinner").setAllowedOrigins("https://talk-spinner.herokuapp.com","http://talk-spinner.herokuapp.com","http://localhost:" + port).withSockJS();
+        registry.addEndpoint("/spinner").setAllowedOrigins("https://talk-spinner.herokuapp.com", "http://talk-spinner.herokuapp.com", "http://localhost:" + port).withSockJS();
     }
 
     @Bean

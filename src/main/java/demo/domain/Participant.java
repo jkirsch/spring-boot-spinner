@@ -5,16 +5,15 @@ import javax.persistence.*;
 /**
  * Date: 02.02.2015
  * Time: 12:19
- *
  */
 @Entity
 public class Participant {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(unique=true)
+    @Column(unique = true)
     private String name;
 
     private int counts = 0;

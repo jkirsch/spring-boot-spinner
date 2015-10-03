@@ -8,7 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import java.io.File;
 
 /**
- * When the development profile is set, we serve the uncompressed frontend directory directly.
+ * When the development profile is set,
+ * we serve the uncompressed frontend directory directly.
  */
 @Configuration
 @Profile("development")
@@ -18,6 +19,6 @@ public class DevelopmentResourceConfiguration extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // if we are in development mode serve the frontend folder directly
         registry.addResourceHandler("/**")
-                .addResourceLocations("file:///" +new File(".").getAbsolutePath()+ "/src/main/frontend/");
+                .addResourceLocations("file:///" + new File(".").getAbsolutePath() + "/src/main/frontend/");
     }
 }

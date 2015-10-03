@@ -16,7 +16,6 @@ import javax.transaction.Transactional;
 /**
  * Date: 02.02.2015
  * Time: 12:25
- *
  */
 @RestController
 @RequestMapping("/participants")
@@ -61,7 +60,7 @@ public class ParticipantController {
     public Participant random() {
         // get a random element
         long count = participantRepository.count();
-        if(count == 0) {
+        if (count == 0) {
             throw new IllegalStateException("No entries found ...");
         }
 
@@ -81,7 +80,6 @@ public class ParticipantController {
         messagingTemplate.convertAndSend("/topic/added", save);
         return save;
     }
-
 
 
     // --------------------------------------------------------------------------

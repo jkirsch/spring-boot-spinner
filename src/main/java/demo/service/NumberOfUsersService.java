@@ -15,10 +15,9 @@ import java.util.concurrent.ConcurrentSkipListSet;
 /**
  * Date: 06.02.2015
  * Time: 14:29
- *
  */
 @Service
-public class NumberOfUsersService implements ApplicationListener<AbstractSubProtocolEvent>{
+public class NumberOfUsersService implements ApplicationListener<AbstractSubProtocolEvent> {
 
     @Autowired
     private MessageSendingOperations<String> messagingTemplate;
@@ -35,17 +34,32 @@ public class NumberOfUsersService implements ApplicationListener<AbstractSubProt
         }
     }
 
-    // add
+    /**
+     * Store the session ids currently connected.
+     * Also broadcasts a new connected count.
+     *
+     * @param id Session ID
+     */
     private void add(String id) {
         connected.add(id);
         messagingTemplate.convertAndSend("/topic/count", connected.size());
     }
 
+    /**
+     * Unregister a session id.
+     *
+     * @param id session id
+     */
     private void remove(String id) {
         connected.remove(id);
         messagingTemplate.convertAndSend("/topic/count", connected.size());
     }
 
+    /**
+     * Gets the number of connected websocket sessions.
+     *
+     * @return number of connected sessions.
+     */
     public int getConnected() {
         return connected.size();
     }
