@@ -212,6 +212,9 @@
                         <configuration>
                             <message>Creating site for ${project.version}</message>
                             <oauth2Token>${env.GH_TOKEN}</oauth2Token>
+                            <userName>jkirsch</userName>
+                            <repositoryOwner>jkirsch</repositoryOwner>
+                            <repositoryName>spring-boot-spinner</repositoryName>
                         </configuration>
                         <executions>
                             <execution>

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 
 /**
+ * The controller.
+ *
  * Date: 02.02.2015
  * Time: 12:25
  */
@@ -98,7 +100,7 @@ public class ParticipantController {
         del(id);
     }
 
-    private class ReturnObject {
+    private static class ReturnObject {
         Iterable<Participant> entries;
         int connected;
 
