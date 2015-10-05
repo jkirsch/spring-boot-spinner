@@ -36,8 +36,10 @@ gulp.task('usemin', function () {
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
             html: [minifyHtml({empty: true, conditionals: true})],
-            js1: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})],
-            js2: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})]
+            js1: [ngAnnotate(), uglify()],
+            js2: [ngAnnotate(), uglify()]
+/*            js1: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})],
+            js2: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})]*/
         }))
         .pipe(gulp.dest(paths.dist));
 });

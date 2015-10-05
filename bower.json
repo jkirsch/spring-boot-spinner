@@ -2,17 +2,17 @@
   "name": "spring-boot-spinner",
   "version": "0.0.1-SNAPSHOT",
   "dependencies": {
-    "angular": "~1.4.5",
-    "angular-animate": "~1.4.5",
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
     "AngularJS-Toaster": "~0.4.15",
     "bootstrap": "~3.3.5",
     "d3": "~3.5.6",
     "jquery": "~2.1.4",
-    "sockjs": "~0.3.4",
     "spinner": "https://github.com/JesseDahl/d3.spinner.git",
     "stomp-websocket": "~2.3.4",
     "zodiac": "https://github.com/indus/zodiac.git",
-    "angular-translate": "~2.8.1"
+    "angular-translate": "~2.8.1",
+    "sockjs-client": "~1.0.3"
   },
   "ignore": [
     "test"
@@ -36,6 +36,6 @@
     }
   },
   "resolutions": {
-    "angular": "1.4.6"
+    "angular": "1.4.7"
   }
 }

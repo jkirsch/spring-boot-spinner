@@ -35,6 +35,7 @@ var myApp = angular.module('spinner', [
             'en-*': 'en',
             'de-*': 'de'
         })
+        .useSanitizeValueStrategy('escape')
         .uniformLanguageTag('bcp47')
         .determinePreferredLanguage()
         .fallbackLanguage('en');
