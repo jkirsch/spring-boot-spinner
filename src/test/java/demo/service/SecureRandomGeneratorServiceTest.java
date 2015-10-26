@@ -12,7 +12,7 @@ public class SecureRandomGeneratorServiceTest {
 
         SecureRandomGeneratorService secureRandomGeneratorService = new SecureRandomGeneratorService();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             Integer next = secureRandomGeneratorService.selectNumber(10);
             Assert.assertThat(next, lessThan(10));
         }
