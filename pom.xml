@@ -17,12 +17,11 @@
         <developerConnection>scm:git:git://github.com/jkirsch/spring-boot-spinner.git</developerConnection>
     </scm>
 
-    <developers></developers>
-
-    <contributors></contributors>
+    <developers><developer></developer></developers>
+    <contributors><contributor></contributor></contributors>
+    <organization></organization>
 
     <url>https://github.com/jkirsch/spring-boot-spinner</url>
-    <organization></organization>
 
     <licenses>
         <license>
