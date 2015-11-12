@@ -6,7 +6,7 @@
     "angular-animate": "~1.4.7",
     "AngularJS-Toaster": "~0.4.16",
     "bootstrap": "~3.3.5",
-    "d3": "~3.5.6",
+    "d3": "~3.5.8",
     "jquery": "~2.1.4",
     "spinner": "https://github.com/JesseDahl/d3.spinner.git",
     "stomp-websocket": "~2.3.4",
