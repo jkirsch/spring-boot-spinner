@@ -10,6 +10,11 @@ spring:
         console:
             enabled: true
 
+server:
+    compression:
+      enabled: true
+      mime-types: text/html,application/json,application/javascript,text/css,text/plain
+      min-response-size: 256
 ---
 spring:
     profiles: cloud
@@ -18,3 +23,9 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update
+
+server:
+    compression:
+      enabled: true
+      mime-types: text/html,application/json,text/css,text/plain
+      min-response-size: 256
