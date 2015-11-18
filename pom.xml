@@ -102,19 +102,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
-            <version>1.0.3.RELEASE</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>om.netflix.archaius</groupId>
-                    <artifactId>archaius-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.netflix.archaius</groupId>
-            <artifactId>archaius-core</artifactId>
-            <version>0.7.1</version>
         </dependency>
 
         <dependency>
@@ -146,11 +133,11 @@
             </activation>
             <dependencies>
                 <!-- Only available in v1.3 -->
-                <!--                <dependency>
-                                    <groupId>org.springframework.boot</groupId>
-                                    <artifactId>spring-boot-devtools</artifactId>
-                                    <optional>true</optional>
-                                </dependency>-->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <optional>true</optional>
+                </dependency>
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-actuator</artifactId>
@@ -158,13 +145,6 @@
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
                     <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
-                    <version>1.0.3.RELEASE</version>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>om.netflix.archaius</groupId>
-                            <artifactId>archaius-core</artifactId>
-                        </exclusion>
-                    </exclusions>
                 </dependency>
             </dependencies>
         </profile>
@@ -305,7 +285,13 @@
 
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-parent</artifactId>
+                <version>Brixton.M3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
