@@ -57,8 +57,9 @@ gulp.task('clean', function (cb) {
 gulp.task('default', ['clean', 'wiredep', 'usemin', 'copyfonts']);
 
 gulp.task('lint', function () {
-    gulp.src('js/**/*.js')
-        .pipe(watch('js/**/*.js'))
+    //gulp.src('js/**/*.js')
+    watch('js/**/*.js')
+        //gulp.pipe(watch('js/**/*.js'))
         .pipe(jshint())
-        .pipe(jshint.reporter("jshint-stylish"));
+        .pipe(jshint.reporter('jshint-stylish'));
 });
