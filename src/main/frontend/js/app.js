@@ -5,18 +5,18 @@ var translations_EN = {
     ADD: 'Add a new label',
     EMPTY_TEXT: 'Enter something',
     NAME: 'Name',
-    SELECTED: 'Selected #',
+    SELECTED: '# Selected',
     SPIN: 'randomize',
     WINNER: 'selected',
-    CLIENTS: 'Currently we have {{ clients }} clients.'
+    CLIENTS: 'Currently we have {{ clients }} client(s).'
 };
 
 var translations_DE = {
     TITLE : 'Zufallsnamen Wählscheibe',
-    ADD: 'Name hinzufügen',
+    ADD: 'Namen hinzufügen',
     EMPTY_TEXT: 'Text eingeben',
     NAME: 'Name',
-    SELECTED: 'Ausgewählt #',
+    SELECTED: '# Ausgewählt',
     SPIN: 'Drehen',
     WINNER: 'Ausgewählt',
     CLIENTS: 'Es schauen gerade: {{ clients }} zu.'
