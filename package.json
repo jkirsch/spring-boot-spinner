@@ -19,7 +19,7 @@
     "gulp-watch": "^4.3.5",
     "jshint": "^2",
     "jshint-stylish": "^2.1.0",
-    "wiredep": "^2.2.2"
+    "wiredep": "^3.0.0"
   },
   "scripts": {
     "prepublish": "bower install --config.interactive=false",
