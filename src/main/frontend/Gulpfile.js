@@ -3,8 +3,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 var usemin = require('gulp-usemin');
-var minifyHtml = require('gulp-minify-html');
-var minifyCss = require('gulp-minify-css');
+var minifyHtml = require('gulp-htmlmin');
+var minifyCss = require('gulp-cssnano');
 var del = require('del');
 var closure = require('gulp-closure-compiler-service');
 
@@ -35,7 +35,7 @@ gulp.task('usemin', function () {
         .pipe(usemin({
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
-            html: [minifyHtml({empty: true, conditionals: true})],
+            html: [minifyHtml({empty: true, conditionals: true, collapseWhitespace: true})],
             js1: [ngAnnotate(), uglify()],
             js2: [ngAnnotate(), uglify()]
 /*            js1: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})],
