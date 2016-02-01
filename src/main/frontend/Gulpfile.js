@@ -6,7 +6,7 @@ var usemin = require('gulp-usemin');
 var minifyHtml = require('gulp-htmlmin');
 var minifyCss = require('gulp-cssnano');
 var del = require('del');
-var closure = require('gulp-closure-compiler-service');
+//var closure = require('gulp-closure-compiler-service');
 
 
 var jshint = require('gulp-jshint');
@@ -36,7 +36,7 @@ gulp.task('usemin', function () {
             css1: [minifyCss(), 'concat'],
             css2: [minifyCss(), 'concat'],
             html: [minifyHtml({empty: true, conditionals: true, collapseWhitespace: true})],
-            js1: [ngAnnotate(), uglify()],
+            js1: [ngAnnotate(), uglify({preserveComments: 'license'})],
             js2: [ngAnnotate(), uglify()]
 /*            js1: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})],
             js2: [ngAnnotate(), closure({compilation_level: 'SIMPLE_OPTIMIZATIONS'})]*/
