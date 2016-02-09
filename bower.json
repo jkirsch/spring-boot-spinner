@@ -2,9 +2,9 @@
   "name": "spring-boot-spinner",
   "version": "0.0.1-SNAPSHOT",
   "dependencies": {
-    "angular": "~1.4.9",
-    "angular-animate": "~1.4.9",
-    "AngularJS-Toaster": "~1.0.0",
+    "angular": "~1.5.0",
+    "angular-animate": "~1.5.0",
+    "AngularJS-Toaster": "~1.1.0",
     "bootstrap": "~3.3.6",
     "d3": "~3.5.14",
     "jquery": "~2.2.0",
@@ -36,6 +36,6 @@
     }
   },
   "resolutions": {
-    "angular": "1.4.8"
+    "angular": "1.5.0"
   }
 }
