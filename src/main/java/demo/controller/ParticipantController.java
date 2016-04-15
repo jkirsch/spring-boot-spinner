@@ -91,7 +91,7 @@ public class ParticipantController {
     // Websocket relay
 
     @SubscribeMapping("/participants")
-    public ReturnObject getParticipants() throws Exception {
+    public ReturnObject getParticipants() {
         return new ReturnObject(participantRepository.findAll(), numberOfUsersService.getConnected());
     }
 
@@ -106,8 +106,8 @@ public class ParticipantController {
      * Gets serialized to JSON automatically.
      */
     private static class ReturnObject {
-        Iterable<Participant> entries;
-        int connected;
+        final Iterable<Participant> entries;
+        final int connected;
 
         public ReturnObject(Iterable<Participant> entries, int connected) {
             this.entries = entries;

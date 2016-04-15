@@ -18,10 +18,10 @@ import java.util.Scanner;
 @Component
 public class RandomGeneratorViaService implements RandomGeneratorService {
 
-    final RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
     private static final Logger LOG = LoggerFactory.getLogger(RandomGeneratorViaService.class);
 
-    SecureRandomGeneratorService secureRandomGeneratorService = new SecureRandomGeneratorService();
+    private SecureRandomGeneratorService secureRandomGeneratorService = new SecureRandomGeneratorService();
 
     public RandomGeneratorViaService() {
         restTemplate = new RestTemplate();

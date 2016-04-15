@@ -22,7 +22,7 @@ public class NumberOfUsersService implements ApplicationListener<AbstractSubProt
     @Autowired
     private MessageSendingOperations<String> messagingTemplate;
 
-    Set<String> connected = new ConcurrentSkipListSet<>();
+    private final Set<String> connected = new ConcurrentSkipListSet<>();
 
     @Override
     public void onApplicationEvent(AbstractSubProtocolEvent event) {

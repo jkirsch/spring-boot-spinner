@@ -15,8 +15,8 @@ cache:
 language: java
 
 script:
-  - mvn clean
-  - mvn site
+  - mvn clean --batch-mode
+  - mvn site --batch-mode
 
 deploy:
   provider: heroku

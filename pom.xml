@@ -160,7 +160,7 @@
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>0.0.29</version>
+                        <version>1.0</version>
                         <executions>
                             <execution>
                                 <id>install node and npm</id>
@@ -168,8 +168,8 @@
                                     <goal>install-node-and-npm</goal>
                                 </goals>
                                 <configuration>
-                                    <nodeVersion>v5.7.0</nodeVersion>
-                                    <npmVersion>3.7.3</npmVersion>
+                                    <nodeVersion>v5.10.1</nodeVersion>
+                                    <npmVersion>3.8.7</npmVersion>
                                 </configuration>
                             </execution>
                             <execution>
@@ -287,7 +287,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>Brixton.M5</version>
+                <version>Brixton.RC1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
