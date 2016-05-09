@@ -12,7 +12,7 @@
     "stomp-websocket": "~2.3.4",
     "zodiac": "https://github.com/indus/zodiac.git",
     "angular-translate": "^2.11",
-    "sockjs-client": "~1.0"
+    "sockjs-client": "~1.1"
   },
   "ignore": [
     "test"
