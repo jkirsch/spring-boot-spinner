@@ -1,5 +1,7 @@
 package demo.domain;
 
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * Time: 12:19
  */
 @Entity
+@Audited
 public class Participant {
 
     @Id
@@ -38,7 +41,7 @@ public class Participant {
         this.counts++;
     }
 
-    @Override
+	@Override
     public String toString() {
         return "Participant{" +
                 "id=" + id +
