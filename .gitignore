@@ -22,6 +22,7 @@ target/
 src/main/frontend/lib/
 
 #The webapp sources are dynamically generated from frontend
+src/main/webapp
 
 node_modules/
 node/
