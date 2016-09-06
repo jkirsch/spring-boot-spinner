@@ -57,7 +57,9 @@ public class RandomGeneratorViaService implements RandomGeneratorService {
     }
 
 
-    public Integer fallback(Integer max) {
+    public Integer fallback(Integer max, Throwable e) {
+		// log why the fallback was called
+		LOG.error(e.getMessage());
         return secureRandomGeneratorService.selectNumber(max);
     }
 }

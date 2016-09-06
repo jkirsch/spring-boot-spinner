@@ -11,7 +11,7 @@
     "d3.spinner": "https://github.com/JesseDahl/d3.spinner.git",
     "stomp-websocket": "~2.3.4",
     "zodiac": "https://github.com/indus/zodiac.git",
-    "angular-translate": "^2.11",
+    "angular-translate": "^2.12",
     "sockjs-client": "^1.1"
   },
   "ignore": [
