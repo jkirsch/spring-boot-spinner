@@ -26,9 +26,9 @@ This takes the sources found in `src/main/frontend`
 and builds a compressed and minified version into `src/main/webapp`
 which is actually used.
 
-This will require maven > 3.1
+This will require maven >= 3.1
 
-Gulp is used as frontend build tool. For simplicity the minified resources are checked in.
+Gulp is used as frontend build tool, the minified sources are not checked in.
 
 A good introduction to merging the frontend and backend toolchain can be found here
 
