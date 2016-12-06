@@ -8,7 +8,7 @@
     "bower": "^1.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
+    "gulp-concat": "^2.6",
     "gulp-cssnano": "^2",
     "gulp-htmlmin": "^3",
     "gulp-jshint": "^2.0",
